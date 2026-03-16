@@ -201,9 +201,9 @@ console.log("_______________________________");
 let aluno1 = {
     nome: lerTeclado.question('Digite seu nome: '),
     notas: {
-        nota1: lerTeclado.questionInt('Digite sua primeira notas: '),
-        nota2: lerTeclado.questionInt('Digite sua segunda notas: '),
-        nota3: lerTeclado.questionInt('Digite sua terceira notas: ')
+        nota1: lerTeclado.questionInt('Digite sua primeira nota: '),
+        nota2: lerTeclado.questionInt('Digite sua segunda nots: '),
+        nota3: lerTeclado.questionInt('Digite sua terceira nota: ')
     }
 };
 console.log("_______________________________");
@@ -211,9 +211,9 @@ console.log("_______________________________");
 let aluno2 = {
     nome: lerTeclado.question('Digite seu nome: '),
     notas: {
-        nota1: lerTeclado.questionInt('Digite sua primeira notas: '),
-        nota2: lerTeclado.questionInt('Digite sua segunda notas: '),
-        nota3: lerTeclado.questionInt('Digite sua terceira notas: ')
+        nota1: lerTeclado.questionInt('Digite sua primeira nota: '),
+        nota2: lerTeclado.questionInt('Digite sua segunda nota: '),
+        nota3: lerTeclado.questionInt('Digite sua terceira nota: ')
     }
 };
 console.log("_______________________________");
@@ -221,9 +221,9 @@ console.log("_______________________________");
 let aluno3 = {
     nome: lerTeclado.question('Digite seu nome: '),
     notas: {
-        nota1: lerTeclado.questionInt('Digite sua primeira notas: '),
-        nota2: lerTeclado.questionInt('Digite sua segunda notas: '),
-        nota3: lerTeclado.questionInt('Digite sua terceira notas: ')
+        nota1: lerTeclado.questionInt('Digite sua primeira nota: '),
+        nota2: lerTeclado.questionInt('Digite sua segunda nota: '),
+        nota3: lerTeclado.questionInt('Digite sua terceira nota: ')
     }
 };
 console.log("_______________________________");
