@@ -72,16 +72,76 @@ console.log("_______________________________");
 // f) Exiba o array com console.table().
 
 // → Seu código aqui:
-let perg1 = lerTeclado.questionInt("Quantos alunos serao cadastro? ")
-let soma = 0
+let quantidade = lerTeclado.questionInt("Quantos alunos serão cadastrados?");
 
-for(let i = 0; i < perg1; i++){
-    let nome = lerTeclado.question("Nome do aluno: ")
-    for(let i = 0; i < perg1; i++){
-    let nota = lerTeclado.questionFloat("Nota: ")
-    soma += nota
+
+let alunos = [];
+
+
+for (let i = 0; i < quantidade; i++) {
+  let nome = lerTeclado.question(`Digite o nome do aluno: `);
+  
+  let nota1 = lerTeclado.questionInt("Digite a Nota 1: ");
+  let nota2 = lerTeclado.questionInt("Digite a Nota 2: ");
+  let nota3 = lerTeclado.questionInt("Digite a Nota 3: ");
+
+  let media = (nota1 + nota2 + nota3) / 3;
+
+  let situacao = "";
+
+    if (media >= 7) {
+        situacao = "Aprovado";
+    } else if (media >= 5 && media < 7) {
+         situacao = "Recuperação";
+    } else {
+        situacao = "Reprovado";
     }
+
+        alunos.push({nome: nome, notas: [nota1, nota2, nota3], media: media, situacao: situacao});
 }
+
+
+console.log("RELATÓRIO:");
+for (let i = 0; i < alunos.length; i++) {
+  console.log(`${alunos[i].nome} | Média: ${alunos[i].media.toFixed(2)} | ${alunos[i].situacao}`);
+}
+
+
+let somaMedias = 0;
+let maior = alunos[0];
+let menor = alunos[0];
+
+let aprovados = 0;
+let recuperacao = 0;
+let reprovados = 0;
+
+for (let i = 0; i < alunos.length; i++) {
+  somaMedias += alunos[i].media;
+
+  if (alunos[i].media > maior.media) {
+        maior = alunos[i];
+  } if (alunos[i].media < menor.media) {
+        menor = alunos[i];
+  } if (alunos[i].situacao === "Aprovado") {
+        aprovados++;
+  } else if (alunos[i].situacao === "Recuperação") {
+        recuperacao++;
+  } else {
+        reprovados++;
+  }
+}
+
+let mediaGeral = somaMedias / alunos.length;
+
+console.log(`\n==== ESTATÍSTICAS ====
+Média geral da turma: ${mediaGeral.toFixed(2)}
+Maior média: ${maior.nome} (${maior.media.toFixed(2)})
+Menor média: ${menor.nome} (${menor.media.toFixed(2)})
+Aprovados: ${aprovados}
+Recuperação: ${recuperacao}
+Reprovados: ${reprovados}`);
+
+console.table(alunos);
 console.log("_______________________________");
 
 
@@ -106,6 +166,48 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+
+let tentativasMax = 7;
+let acertou = false;
+let contadorTentativas = 0;
+
+
+for (let i = 1; i <= tentativasMax; i++) {
+  let tentativa = lerTeclado.questionInt(`Tentativa ${i}: Digite um número de 1 a 100: `);
+
+    contadorTentativas++
+
+  if (tentativa > numeroSecreto) {
+    console.log("Muito alto!");
+  } else if (tentativa < numeroSecreto) {
+    console.log("Muito baixo!");
+  } else {
+    console.log(`Parabéns! Acertou em ${contadorTentativas} tentativa(s)!`);
+    acertou = true;
+    break;
+  }
+
+  let restantes = tentativasMax - i;
+  console.log(`Tentativas restantes: ${restantes}`);
+}
+
+
+if (!acertou) {
+  console.log(`Game over! O número era ${numeroSecreto}.`);
+}
+
+
+console.log("\nRESUMO:");
+console.log(`Número secreto: ${numeroSecreto}`);
+
+if (acertou) {
+  console.log(`Número de tentativas usadas: ${contadorTentativas}`);
+  console.log("Resultado: Vitória");
+} else {
+  console.log(`Número de tentativas usadas: ${tentativasMax}`);
+  console.log("Resultado: Derrota");
+}
 
 console.log("_______________________________");
 
@@ -132,5 +234,63 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const vendas = [12500, 9800, 15200, 11000, 13750, 8900, 17300, 14600, 10200, 16800, 19500, 22000];
+
+const meses0 = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho","Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+let total = 0;
+
+for (let i = 0; i < vendas.length; i++) {
+  total += vendas[i];
+}
+
+let media = total / vendas.length;
+
+let maiorValor = vendas[0];
+let menorValor = vendas[0];
+let mesMaior = meses0[0];
+let mesMenor = meses0[0];
+
+for (let i = 0; i < vendas.length; i++) {
+  if (vendas[i] > maiorValor) {
+        maiorValor = vendas[i];
+        mesMaior = meses0[i];
+  } if (vendas[i] < menorValor) {
+        menorValor = vendas[i];
+        mesMenor = meses0[i];
+  }
+}
+let acimaMedia = 0;
+let abaixoMedia = 0;
+
+let relatorio = [];
+
+console.log("RELATÓRIO MENSAL:");
+
+for (let i = 0; i < vendas.length; i++) {
+  let situacaoo = "";
+if (vendas[i] >= media) {
+    situacaoo = "Acima da média";
+    acimaMedia++;
+  } else {
+        situacaoo = "Abaixo da média";
+        abaixoMedia++;
+  }
+
+  console.log(`${meses0[i]}: R$ ${vendas[i].toFixed(2)} - ${situacaoo}`);
+
+  relatorio.push({mes: meses0[i], venda: vendas[i], situacao: situacaoo});
+}
+
+
+console.log("\nRESUMO:");
+console.log(`Total de vendas no ano: R$ ${total.toFixed(2)}`);
+console.log(`Média mensal: R$ ${media.toFixed(2)}`);
+console.log(`Maior venda: ${mesMaior} (R$ ${maiorValor.toFixed(2)})`);
+console.log(`Menor venda: ${mesMenor} (R$ ${menorValor.toFixed(2)})`);
+console.log(`Meses acima da média: ${acimaMedia}`);
+console.log(`Meses abaixo da média: ${abaixoMedia}`);
+
+console.table(relatorio);
 
 console.log("_______________________________");
