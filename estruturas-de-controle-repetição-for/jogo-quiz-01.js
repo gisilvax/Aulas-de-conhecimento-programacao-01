@@ -84,7 +84,6 @@ console.log(`
 - 1 ponto por acerto.
 - Sem segunda chance por pergunta.`);
 
-
 console.log("\n_______________________________");
 
 
@@ -118,7 +117,15 @@ console.log("\n_______________________________");
 //          Exiba: "Errado! A resposta correta era: <resposta>"
 
 // → Seu código aqui:
+for(let i = 0; i < perguntas.length; i++){
+    console.log(`Pergunta ${i + 1}, de ${perguntas.length} perguntas.`);
+    
+    console.log(`${perguntas[i].texto}`);
 
+    console.log(``);
+    
+    
+}
 
 console.log("\n_______________________________");
 
