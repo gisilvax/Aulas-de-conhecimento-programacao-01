@@ -45,7 +45,7 @@ console.log("_______________________________");
 // a) Usando um for com passo 2, exiba todos os números pares de 0 a 30.
 // b) Ao final, exiba quantos números pares foram exibidos.
 
-// → Seu código aqui:
+0// → Seu código aqui:
 let soma = 0
 
 for(let i = 0; i <= 30; i += 2){
