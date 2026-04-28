@@ -168,29 +168,36 @@ console.log("\n_______________________________");
 //           { jogador, acertos, total, aproveitamento, classificacao }
 
 // → Seu código aqui:
+let total = perguntas.length;
 let aproveitamento = (pontos / perguntas.length) * 100
 
 let classificacao;
 
 if(aproveitamento === 100){
-  console.log("PERFEITO! Gênio!");
+  classificacao = "PERFEITO! Gênio!"
 } else if(aproveitamento >= 75 && aproveitamento <= 99){
-  console.log("Excelente! Quase lá!");
+  classificacao = "Excelente! Quase lá!"
 } else if(aproveitamento >= 50 && aproveitamento <= 74){
-  console.log("Bom! Você sabe bastante.");
+  classificacao = "Bom! Você sabe bastante."
 } else if(aproveitamento >= 25 && aproveitamento <= 49){
-  console.log("Regular. Vale estudar mais."); 
+  classificacao = "Regular. Vale estudar mais."
 } else{
-  console.log("Fraco. Bora revisar o conteúdo!");
-}
-
-perguntas.push(usuario, pontos, classificacao, aproveitamento);
+  classificacao = "Fraco. Bora revisar o conteúdo!"
+};
 
 console.log(`===============================================
 | RESULTADO FINAL
-| Jogador: ${perguntas.length.usuario}
-| Acertos: ${perguntas.pontos} de <total>
-| Aproveitamento: <aproveitamento>%
-| Classificação: <classificacao>
+| Jogador: ${usuario}
+| Acertos: ${pontos} de ${total}
+| Aproveitamento: ${aproveitamento}
+| Classificação: ${classificacao}
 ===============================================`);
+perguntas.push({
+  nome: usuario, 
+  acertos: pontos, 
+  classificacao: classificacao, 
+  aproveitamento: aproveitamento});
+
+  console.table(perguntas);
+
 console.log("\nObrigado por jogar!");
