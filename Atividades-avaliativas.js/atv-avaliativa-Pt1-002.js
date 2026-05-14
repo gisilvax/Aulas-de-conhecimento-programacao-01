@@ -224,7 +224,7 @@ if(resp1 === 1 && resp2 === 1 && resp3 === 1){
     destino = "H) Buenos Aires, Cusco ou Cartagena"
 } else if(resp1 === 3 && resp2 === 2){
     destino = "I) Chapada dos Veadeiros ou Torres del Paine"
-} else{
+} else{resp1 > 3 && resp1 < 1 && resp2 > 3 && resp2 < 1 && resp3 > 3 && resp3 < 1
     console.log("Opcao invalida!");
 }
 //
