@@ -1,3 +1,8 @@
+// ======================  Desenvolvimento de um Banco em JavaScript  =================================
+
+// Integrantes: Isabella Amorim e Giovanna Silva
+
+
 const lerDados = require("readline-sync");
 
 let banco = {
@@ -35,7 +40,7 @@ function login() {
     let numero = lerDados.questionInt("Numero da conta: ");
     let senha = lerDados.questionInt("Senha: ");
 
-    let usuario = banco.usuarios.find(
+    let usuario = banco.usuarios.find(                                      // Serve para achar um elemento
         conta => conta.numero === numero && conta.senha === senha
     );
 
@@ -117,6 +122,7 @@ function extrato(conta){
             conta.extrato[i].valor,
             conta.extrato[i].data.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
             conta.extrato[i].data.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+            // Formatar a exibição o horario e a data brasileiro
         );
 
     }
@@ -135,7 +141,7 @@ function transferencia(conta){
 
     let outraConta;
 
-    for (let usuario of banco.usuarios) {
+    for (let usuario of banco.usuarios) {       // Quando não precisamos de um indice o for...of pode ser utilizado (percorrendo apenas os valores)
         if (usuario.numero === destino) {
             outraConta = usuario;
             break;
