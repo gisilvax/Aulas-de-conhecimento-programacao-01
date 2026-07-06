@@ -114,10 +114,10 @@ function extrato(conta){
         console.log("Nenhuma movimentacao.");
     }
 
-    for(let i = 0; i < conta.extrato.length; i++){
+    for(let i = 0; i < conta.extrato.length; i++){ // Esse loop percorre todas as movimentações
 
         console.log(
-            conta.extrato[i].tipo,
+            conta.extrato[i].tipo,                      // usado para pegar o tipo da movimnetação
             "- R$",
             conta.extrato[i].valor,
             conta.extrato[i].data.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
